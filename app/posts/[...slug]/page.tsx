@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
-import { allPosts } from "contentlayer/generated"
-
-import { Metadata } from "next"
+import { allPosts, Post } from "contentlayer/generated"
+import { headers } from 'next/headers'
+import { GetServerSideProps, Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
 
 interface PostProps {
@@ -12,8 +12,7 @@ interface PostProps {
 
 async function getPostFromParams(params: PostProps["params"]) {
   const slug = params?.slug?.join("/")
-  const post = allPosts.find((post) => post.slugAsParams === slug)
-
+  const post = allPosts.find((post) => post.slugAsParams === slug);
   if (!post) {
     null
   }
@@ -43,7 +42,24 @@ export async function generateStaticParams(): Promise<PostProps["params"][]> {
 }
 
 export default async function PostPage({ params }: PostProps) {
-  const post = await getPostFromParams(params)
+  
+   
+  const headersList = headers();
+  const requestMethod = headersList.get('x-request-method');
+  // @ts-ignore
+  let post : Post = null;
+  let safe = "";
+  let page = "1";
+
+  if (requestMethod === 'POST') {
+     safe = headersList.get('x-form-safe') as string;
+     page = headersList.get('x-form-page') as string;
+    // @ts-ignore
+    const safePost = allPosts.find((post) => post.safePage == parseInt(page))
+    post = safePost!;
+  }else{
+    post = (await getPostFromParams(params))!;
+  }
 
   if (!post) {
     notFound()
@@ -58,7 +74,9 @@ export default async function PostPage({ params }: PostProps) {
         </p>
       )}
       <hr className="my-4" />
-      <Mdx code={post.body.code} />
+      {
+        requestMethod === 'POST' ? <Mdx code={post.body.code} currentPage={parseInt(page)} safe={safe} /> : <Mdx code={post.body.code} />
+      }
     </article>
   )
 }

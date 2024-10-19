@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files"
+import { defineDocumentType, makeSource } from "contentlayer2/source-files"
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -44,6 +44,11 @@ export const Post = defineDocumentType(() => ({
       type: "date",
       required: true,
     },
+    safePage : {
+      type : "string",
+      required : false,
+      default : "0"
+    }
   },
   computedFields,
 }))
