@@ -6,14 +6,14 @@ export default function Home() {
   const filteredPost = allPosts.filter((post) => post.safePage == 0);
   return (
     <div className="flex flex-col gap-3">
-        {/* <div>
+        <div>
           <h1>Welcome to my form</h1>
           <form action="/posts/deploying-next-apps" method="POST">
             <input type="text" name="safe" placeholder="Your name" value="test" required  readOnly/>
             <input type="number" name="page" placeholder="Your email" value={1} required  readOnly/>
             <button type="submit">Submit</button>
           </form>
-        </div> */}
+        </div>
       <div className="flex flex-col gap-1">
         <h2 className="text-xl font-bold text-slate-600">Posts</h2>
         <hr className="border-slate-300 dark:border-slate-800" />
