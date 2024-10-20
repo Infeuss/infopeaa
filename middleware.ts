@@ -17,7 +17,7 @@ export async function middleware(request: NextRequest){
           let sortAlias = refererObj.pathname.replaceAll("/","");
           if(sortAlias.length > 0) return response;
         }
-        return NextResponse.redirect(new URL("/",request.url),{status : 301})
+       // return NextResponse.redirect(new URL("/",request.url),{status : 301})
      }
   }
   return response;
