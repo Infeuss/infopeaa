@@ -21,6 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <head>
           <script async={true} defer={true} src='https://www.google.com/recaptcha/api.js'></script>
+          <script type="module" src="https://securepubads.shareus.io/scripts/tag/js/gpt.js" ></script>
       </head>
       <body
         className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
