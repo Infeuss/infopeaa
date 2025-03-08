@@ -4,6 +4,8 @@ import { headers } from 'next/headers'
 import { GetServerSideProps, Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
 
+export const runtime = "edge";
+
 interface PostProps {
   params: {
     slug: string[]

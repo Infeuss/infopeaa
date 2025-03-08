@@ -1,5 +1,6 @@
 import { allPosts } from "@/.contentlayer/generated"
 import Link from "next/link"
+export const runtime = "edge";
 
 export default function Home() {
   //@ts-ignore

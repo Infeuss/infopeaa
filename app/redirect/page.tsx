@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 
+export const runtime = "edge";
+
 const Page = () => {
   const formRef = useRef<HTMLFormElement>(null)
 
