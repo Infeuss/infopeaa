@@ -8,19 +8,6 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-3">
 
-      <center>
-        <div id="shareus-admanager-7858222688-atLL9NJmaf">
-        <script>
-            {`
-              window._shareustag = window._shareustag || {cmd:[]};
-              _shareustag.cmd.push(function() {
-                var slot1 = _shareustag.defineSlot('/shareus-admanager/7858222688/atLL9NJmaf/Banner1', [[300,250]],'shareus-admanager-7858222688-atLL9NJmaf');
-              });
-            `}
-          </script>
-        </div>
-      </center>
-
 
         {/* <div>
           <h1>Welcome to my form</h1>

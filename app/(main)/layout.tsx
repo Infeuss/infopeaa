@@ -26,6 +26,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
+
+
+<div id="shareus-admanager-7858222688-2FcLxnTqrv">
+ <script>
+   {`
+       window._shareustag = window._shareustag || {cmd:[]};
+      _shareustag.cmd.push(function() {
+        var slot1 = _shareustag.defineSlot('/shareus-admanager/7858222688/2FcLxnTqrv/Responsive', ["Responsive"],'shareus-admanager-7858222688-2FcLxnTqrv');
+      });
+   `}
+  </script>
+</div>
+
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem initialData={{
           totalPages : 2,
           googleCaptchaKey : "",
